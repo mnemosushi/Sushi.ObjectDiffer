@@ -16,7 +16,7 @@ Compare two objects of the same type
 
 One of the property/field in object must contains CloneObjectPlaceholder:
 
-    ObjectDiffer.DifferCloneByReflection<T>(item);
+    ICollection<INode> changeNodes = ObjectDiffer.DifferCloneByReflection<T>(item);
 
 ## Clone helpers
 
