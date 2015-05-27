@@ -78,7 +78,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sushi.ObjectDiffer\Sushi.ObjectDiffer.csproj">
+    <ProjectReference Include="..\..\src\Sushi.ObjectDiffer\Sushi.ObjectDiffer.csproj">
       <Project>{2454d07c-da8b-4ca1-8dd0-c7c5a83022d4}</Project>
       <Name>Sushi.ObjectDiffer</Name>
     </ProjectReference>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sushi.ObjectDiffer", "Sushi.ObjectDiffer\Sushi.ObjectDiffer.csproj", "{2454D07C-DA8B-4CA1-8DD0-C7C5A83022D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sushi.ObjectDiffer", "src\Sushi.ObjectDiffer\Sushi.ObjectDiffer.csproj", "{2454D07C-DA8B-4CA1-8DD0-C7C5A83022D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{839471CD-A3D9-4C31-86FF-73B97B856852}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,7 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{839471
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sushi.ObjectDiffer.Tests", "Sushi.ObjectDiffer.Tests\Sushi.ObjectDiffer.Tests.csproj", "{D730AEF8-4CEB-49A4-90DB-FAFEBA25B674}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sushi.ObjectDiffer.Tests", "tests\Sushi.ObjectDiffer.Tests\Sushi.ObjectDiffer.Tests.csproj", "{D730AEF8-4CEB-49A4-90DB-FAFEBA25B674}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{A9C1B273-2032-4EA2-B346-CAE3D9F69297}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
