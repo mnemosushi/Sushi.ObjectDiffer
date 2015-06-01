@@ -55,7 +55,7 @@ namespace Sushi.ObjectDiffer.Tests
         {
             Models.Fruit fruit = PrepareFruitWithChanges();
 
-            ICollection<INode> nodeCollection = ObjectDiffer.DifferCloneByReflection<Models.Fruit>(fruit);
+            ICollection<INode> nodeCollection = ObjectDiffer.DifferClone<Models.Fruit>(fruit);
 
             Assert.IsNotNull(nodeCollection);
         }
@@ -65,7 +65,7 @@ namespace Sushi.ObjectDiffer.Tests
         {
             Assert.Catch<ArgumentException>(() =>
             {
-                ObjectDiffer.DifferCloneByReflection<Models.Fruit>(null);
+                ObjectDiffer.DifferClone<Models.Fruit>(null);
             });
         }
 
@@ -76,7 +76,7 @@ namespace Sushi.ObjectDiffer.Tests
 
             Assert.Catch<ArgumentException>(() =>
             {
-                ICollection<INode> nodeCollection = ObjectDiffer.DifferCloneByReflection<Models.Fruit>(fruit);
+                ICollection<INode> nodeCollection = ObjectDiffer.DifferClone<Models.Fruit>(fruit);
             });
         }
 
@@ -85,7 +85,7 @@ namespace Sushi.ObjectDiffer.Tests
         {
             Models.Fruit fruit = PrepareFruitWithoutChanges();
 
-            ICollection<INode> nodeCollection = ObjectDiffer.DifferCloneByReflection<Models.Fruit>(fruit);
+            ICollection<INode> nodeCollection = ObjectDiffer.DifferClone<Models.Fruit>(fruit);
 
             Assert.AreEqual(0, nodeCollection.Count);
         }
@@ -95,7 +95,7 @@ namespace Sushi.ObjectDiffer.Tests
         {
             Models.Fruit fruit = PrepareFruitWithChanges();
 
-            ICollection<INode> nodeCollection = ObjectDiffer.DifferCloneByReflection<Models.Fruit>(fruit);
+            ICollection<INode> nodeCollection = ObjectDiffer.DifferClone<Models.Fruit>(fruit);
 
             Assert.AreEqual(2, nodeCollection.Count);
         }
@@ -105,7 +105,7 @@ namespace Sushi.ObjectDiffer.Tests
         {
             Models.Fruit fruit = PrepareFruitWithChanges();
 
-            ICollection<INode> nodeCollection = ObjectDiffer.DifferCloneByReflection<Models.Fruit>(fruit);
+            ICollection<INode> nodeCollection = ObjectDiffer.DifferClone<Models.Fruit>(fruit);
 
             Assert.AreEqual("Color", nodeCollection.First().FullName);
             Assert.AreEqual("Owner.Name", nodeCollection.Last().FullName);
@@ -116,7 +116,7 @@ namespace Sushi.ObjectDiffer.Tests
         {
             Models.Fruit fruit = PrepareFruitWithChanges();
 
-            ICollection<INode> nodeCollection = ObjectDiffer.DifferCloneByReflection<Models.Fruit>(fruit);
+            ICollection<INode> nodeCollection = ObjectDiffer.DifferClone<Models.Fruit>(fruit);
 
             Assert.AreEqual("Color", nodeCollection.First().Name);
             Assert.AreEqual("Name", nodeCollection.Last().Name);
@@ -127,7 +127,7 @@ namespace Sushi.ObjectDiffer.Tests
         {
             Models.Fruit fruit = PrepareFruitWithChanges();
 
-            ICollection<INode> nodeCollection = ObjectDiffer.DifferCloneByReflection<Models.Fruit>(fruit);
+            ICollection<INode> nodeCollection = ObjectDiffer.DifferClone<Models.Fruit>(fruit);
 
             Assert.AreEqual("Green", nodeCollection.First().OldItem);
             Assert.AreEqual("Yellow", nodeCollection.First().NewItem);
@@ -142,7 +142,7 @@ namespace Sushi.ObjectDiffer.Tests
 
             Assert.Catch<ArgumentNullException>(() =>
             {
-                ICollection<INode> nodeCollection = ObjectDiffer.DifferByReflection(fruita, null);
+                ICollection<INode> nodeCollection = ObjectDiffer.Differ(fruita, null);
             });
         }
 
@@ -153,7 +153,7 @@ namespace Sushi.ObjectDiffer.Tests
 
             Assert.Catch<ArgumentNullException>(() =>
             {
-                ICollection<INode> nodeCollection = ObjectDiffer.DifferByReflection(null, fruitb);
+                ICollection<INode> nodeCollection = ObjectDiffer.Differ(null, fruitb);
             });
         }
 
@@ -165,7 +165,7 @@ namespace Sushi.ObjectDiffer.Tests
             fruitb.Name = "Banana";
             fruitb.Color = "Yellow";
 
-            ICollection<INode> nodeCollection = ObjectDiffer.DifferByReflection(fruita, fruitb);
+            ICollection<INode> nodeCollection = ObjectDiffer.Differ(fruita, fruitb);
 
             Assert.AreEqual("Name", nodeCollection.First().FullName);
             Assert.AreEqual("Color", nodeCollection.Last().FullName);
@@ -179,7 +179,7 @@ namespace Sushi.ObjectDiffer.Tests
             fruitb.Name = "Banana";
             fruitb.Color = "Yellow";
 
-            ICollection<INode> nodeCollection = ObjectDiffer.DifferByReflection(fruita, fruitb);
+            ICollection<INode> nodeCollection = ObjectDiffer.Differ(fruita, fruitb);
 
             Assert.AreEqual("Name", nodeCollection.First().Name);
             Assert.AreEqual("Color", nodeCollection.Last().Name);

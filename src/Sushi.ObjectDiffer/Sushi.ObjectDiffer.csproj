@@ -51,7 +51,7 @@
     <Compile Include="Node.cs" />
     <Compile Include="ObjectDiffer.cs" />
     <Compile Include="CloneObjectPlaceholderAttribute.cs" />
-    <Compile Include="ReflectionObjectDiffer.cs" />
+    <Compile Include="DefaultObjectDiffer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

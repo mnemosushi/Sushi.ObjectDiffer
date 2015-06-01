@@ -16,12 +16,12 @@ namespace Sushi.ObjectDiffer
         /// <typeparam name="T"></typeparam>
         /// <param name="item"></param>
         /// <returns></returns>
-        public static ICollection<INode> DifferCloneByReflection<T>(T item)
+        public static ICollection<INode> DifferClone<T>(T item)
         {
             if (item == null)
                 throw new ArgumentNullException("item");
 
-            return DifferCloneByReflection<T>(new DefaultNodeFactory(), item);
+            return DifferClone<T>(new DefaultNodeFactory(), item);
         }
 
         /// <summary>
@@ -31,14 +31,14 @@ namespace Sushi.ObjectDiffer
         /// <typeparam name="T"></typeparam>
         /// <param name="item"></param>
         /// <returns></returns>
-        public static ICollection<INode> DifferCloneByReflection<T>(INodeFactory nodeFactory, T item)
+        public static ICollection<INode> DifferClone<T>(INodeFactory nodeFactory, T item)
         {
             if (nodeFactory == null)
                 throw new ArgumentNullException("nodeFactory");
             if (item == null)
                 throw new ArgumentNullException("item");
 
-            var objectDiffer = new ReflectionObjectDiffer<T>(nodeFactory);
+            var objectDiffer = new DefaultObjectDiffer<T>(nodeFactory);
             return DifferClone<T>(objectDiffer, item);
         }
 
@@ -75,14 +75,14 @@ namespace Sushi.ObjectDiffer
         /// <param name="oldItem"></param>
         /// <param name="newItem"></param>
         /// <returns></returns>
-        public static ICollection<INode> DifferByReflection<T>(T oldItem, T newItem)
+        public static ICollection<INode> Differ<T>(T oldItem, T newItem)
         {
             if (oldItem == null)
                 throw new ArgumentNullException("oldItem");
             if (newItem == null)
                 throw new ArgumentNullException("newItem");
 
-            return DifferByReflection<T>(new DefaultNodeFactory(), oldItem, newItem);
+            return Differ<T>(new DefaultNodeFactory(), oldItem, newItem);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace Sushi.ObjectDiffer
         /// <param name="oldItem"></param>
         /// <param name="newItem"></param>
         /// <returns></returns>
-        public static ICollection<INode> DifferByReflection<T>(INodeFactory nodeFactory, T oldItem, T newItem)
+        public static ICollection<INode> Differ<T>(INodeFactory nodeFactory, T oldItem, T newItem)
         {
             if (nodeFactory == null)
                 throw new ArgumentNullException("nodeFactory");
@@ -102,7 +102,7 @@ namespace Sushi.ObjectDiffer
             if (newItem == null)
                 throw new ArgumentNullException("newItem");
 
-            var objectDiffer = new ReflectionObjectDiffer<T>(nodeFactory);
+            var objectDiffer = new DefaultObjectDiffer<T>(nodeFactory);
             return Differ<T>(objectDiffer, oldItem, newItem);
         }
 

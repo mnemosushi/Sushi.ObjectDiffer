@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Sushi.ObjectDiffer
 {
-    public class ReflectionObjectDiffer<T> : IObjectDiffer<T>
+    public class DefaultObjectDiffer<T> : IObjectDiffer<T>
     {
-        public ReflectionObjectDiffer(INodeFactory nodeFactory)
+        public DefaultObjectDiffer(INodeFactory nodeFactory)
         {
             NodeFactory = nodeFactory;
         }
